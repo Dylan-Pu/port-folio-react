@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://dylan-pu.github.io/port-folio-react",
+  "homepage": "https://dylan-pu.github.io/port-folio-react/",
   
   "scripts": {
     "predeploy": "npm run build",
