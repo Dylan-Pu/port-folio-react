@@ -2,27 +2,20 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "functions": {
-    "public/index.php": {
-      "runtime": "vercel-php@0.8.0"
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.4"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/public/index.php"
-    },
-    {
-      "src": "/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=0, s-maxage=86400"
-      },
-      "continue": true
+      "source": "/(.*)",
+      "destination": "/api/index.php"
     }
   ],
-  "buildCommand": "npm run build && composer install --no-dev --optimize-autoloader",
-  "installCommand": "npm ci && composer install --no-dev",
+  "buildCommand": "composer install --optimize-autoloader --no-dev && npm ci && npm run build",
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false"
+    "APP_DEBUG": "false",
+    "APP_URL": "https://portfoliodylanp.vercel.app"
   }
 }
