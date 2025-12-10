@@ -1,5 +1,5 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel/json",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "functions": {
     "public/index.php": {
@@ -13,12 +13,9 @@
     },
     {
       "src": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, s-maxage=86400"
-        }
-      ],
+      "headers": {
+        "Cache-Control": "public, max-age=0, s-maxage=86400"
+      },
       "continue": true
     }
   ],
